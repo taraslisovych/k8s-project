@@ -13,7 +13,7 @@ pipeline {
               //sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.249.104.69 git init'
               //sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.249.104.69 git remote add origin https://github.com/taraslisovych/k8s-project.git'
               //sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.249.104.69 git pull'
-            }
+            //}
           }
         }
         stage('Copy Docker image sources to the Build server') {
