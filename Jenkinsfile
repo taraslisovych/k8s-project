@@ -18,8 +18,8 @@ pipeline {
         stage('Build and push Docker image') {
           steps {
             sshagent(['build_server']) {
-              sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.249.104.69 cd ./docker'
-              sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.249.104.69 docker build -t freezz187/k8s-httpd-php .'
+              //sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.249.104.69 cd ./docker'
+              sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.249.104.69 docker build -t freezz187/k8s-httpd-php ./docker'
               sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.249.104.69 docker images'
 
             }
