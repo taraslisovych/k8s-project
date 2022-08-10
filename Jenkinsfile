@@ -4,10 +4,11 @@ pipeline {
     stages {
         stage('Checkour sources from Git') {
           steps {
-            sshagent(['build_server']) {
-              git 'https://github.com/taraslisovych/k8s-project.git'
+            git 'https://github.com/taraslisovych/k8s-project.git'
+            //sshagent(['build_server']) {
+
               //sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.249.104.69 mkdir ./docker'
-              sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.249.104.69 cd ./docker'
+              //sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.249.104.69 cd ./docker'
               //sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.249.104.69 touch ./docker/test1'
               //sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.249.104.69 git init'
               //sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.249.104.69 git remote add origin https://github.com/taraslisovych/k8s-project.git'
@@ -18,6 +19,7 @@ pipeline {
         stage('Copy Docker image sources to the Build server') {
           steps {
             sshagent(['build_server']) {
+              sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.249.104.69 cd ./docker'
               sh 'scp -o StrictHostKeyChecking=no ./docker/* ubuntu@34.249.104.69:/home/ubuntu/docker'
             }
           }
