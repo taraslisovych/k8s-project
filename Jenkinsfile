@@ -4,8 +4,7 @@ pipeline {
     stages {
         stage('Checkour sources from Git') {
           steps {
-            git url: 'git@github.com/taraslisovych/k8s-project.git',
-              branch: 'main'
+            git 'https://github.com/taraslisovych/k8s-project.git'
             //sshagent(['build_server']) {
 
               //sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.249.104.69 mkdir ./docker'
