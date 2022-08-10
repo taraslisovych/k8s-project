@@ -7,10 +7,10 @@ pipeline {
             sshagent(['build_server']) {
               //sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.249.104.69 mkdir ./docker'
               sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.249.104.69 cd ./docker'
-              sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.249.104.69 touch ./docker/test1'
+              //sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.249.104.69 touch ./docker/test1'
               script {
                 git branch: "main",
-                url: "https://github.com/taraslisovych/jenkins.git"
+                url: "https://github.com/taraslisovych/k8s-project.git"
               }
             }
           }
